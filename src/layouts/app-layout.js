@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom";
 import Sticky from "react-stickynode";
-import Header from "../components/header/Header";
+import Header from "../layouts/header/Header";
+import PropTypes from "prop-types";
 import { uiState } from "../context/ui/ui.context";
 import { LayoutWrapper } from "./app-layout.style";
 import { isCategoryPage } from "./is-home-page";
@@ -24,3 +25,8 @@ export default function Layout({ classname, children }) {
     </LayoutWrapper>
   );
 }
+
+Layout.propTypes = {
+  className: PropTypes.string,
+  token: PropTypes.string
+};

@@ -1,17 +1,17 @@
-import "./styles.css";
 import React from "react";
+import { ThemeProvider } from "styled-components";
+import { defaultTheme } from "./site-settings/site-theme/defaults";
 import { AuthProvider } from "./context/auth/auth.context";
-import { BrowserRouter, Route } from "react-router-dom";
-import Home from "./pages/Home";
 import { UIProvider } from "./context/ui/ui.context";
-import Header from "./components/header/Header";
+import { BrowserRouter, Route } from "react-router-dom";
 import Layout from "./layouts/app-layout";
+
+import Home from "./pages/Home";
 
 function App() {
   return (
     <BrowserRouter>
       <Layout>
-        <Header />
         <Route exact path="/" component={Home} />
       </Layout>
     </BrowserRouter>
@@ -20,10 +20,12 @@ function App() {
 
 export default function () {
   return (
-    <AuthProvider>
-      <UIProvider>
-        <App />
-      </UIProvider>
-    </AuthProvider>
+    <ThemeProvider theme={defaultTheme}>
+      <AuthProvider>
+        <UIProvider>
+          <App />
+        </UIProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }

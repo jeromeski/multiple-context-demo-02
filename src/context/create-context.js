@@ -1,8 +1,6 @@
 import React, { useContext, createContext, useReducer } from "react";
 
-export function useCreateContext(reducer, initialState) {
-  const defaultDispatch = () => initialState;
-  console.log(defaultDispatch);
+export default function makeStore(reducer, initialState) {
   const stateCtx = createContext();
   const dispatchCtx = createContext();
 

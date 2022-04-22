@@ -9,8 +9,10 @@ import { isCategoryPage } from "./is-home-page";
 export default function Layout({ classname, children }) {
   const { isSticky } = uiState();
   console.log("Layout --> isSticky :", isSticky);
-  const { location: pathname, search } = useHistory();
-  const type = pathname === "/restaurant" ? "restaurant" : search;
+  const { location } = useHistory();
+  let type =
+    location.pathname === "/restaurant" ? "restaurant" : location.pathname;
+  type = type.split("").splice(1, type.length).join("");
   const isHomePage = isCategoryPage(type);
   return (
     <LayoutWrapper>

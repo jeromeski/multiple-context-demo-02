@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "./site-settings/site-theme/defaults";
 import { AuthProvider } from "./context/auth/auth.context";
 import { UIProvider } from "./context/ui/ui.context";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Redirect, Route } from "react-router-dom";
 import Layout from "./layouts/app-layout";
 
 import Home from "./pages/Home";
@@ -14,7 +14,10 @@ function App() {
   return (
     <BrowserRouter>
       <Layout>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/">
+          <Redirect to="/grocery" />
+        </Route>
+        <Route exact path="/grocery" component={Home} />
       </Layout>
     </BrowserRouter>
   );

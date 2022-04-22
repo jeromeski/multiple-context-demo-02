@@ -7,6 +7,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Layout from "./layouts/app-layout";
 
 import Home from "./pages/Home";
+import { LanguageProvider } from "./context/language/language.context";
+import { messages } from "./site-settings/site-translation/messages";
 
 function App() {
   return (
@@ -21,11 +23,13 @@ function App() {
 export default function () {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <AuthProvider>
-        <UIProvider>
-          <App />
-        </UIProvider>
-      </AuthProvider>
+      <LanguageProvider messages={messages}>
+        <AuthProvider>
+          <UIProvider>
+            <App />
+          </UIProvider>
+        </AuthProvider>
+      </LanguageProvider>
     </ThemeProvider>
   );
 }

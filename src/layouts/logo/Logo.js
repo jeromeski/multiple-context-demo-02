@@ -22,7 +22,7 @@ const Logo = ({ imageUrl, alt, onClick }) => {
 export default Logo;
 
 Logo.propTypes = {
-  imageUrl: PropTypes.object,
+  imageUrl: PropTypes.string,
   alt: PropTypes.string
   // onClick: PropTypes.function
 };

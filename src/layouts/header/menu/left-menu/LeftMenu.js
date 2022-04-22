@@ -71,7 +71,14 @@ export const LeftMenu = ({ logo }) => {
                 <Icon>
                   <CategoryIcon name={activeMenu?.icon} />
                 </Icon>
-                <span></span>
+                <span>
+                  <span>
+                    <FormattedMessage
+                      id={activeMenu?.id}
+                      defaultMessage={activeMenu.defaultMessage}
+                    />
+                  </span>
+                </span>
               </span>
               <Arrow>
                 <MenuDown />
@@ -86,5 +93,5 @@ export const LeftMenu = ({ logo }) => {
 };
 
 LeftMenu.propTypes = {
-  logo: PropTypes.object
+  logo: PropTypes.string
 };

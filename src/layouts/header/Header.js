@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 import { useLogger } from "react-use";
 import { LeftMenu } from "./menu/left-menu/LeftMenu";
 import { authDispatch, authState } from "../../context/auth/auth.context";
-import { LogoImage } from "../logo/logo.style";
+import LogoImage from "../../assets/images/logo.svg";
+import UserImage from "../../assets/images/user.jpg";
 import HeaderWrapper from "./header.style";
 
 export default function Header({ className }) {

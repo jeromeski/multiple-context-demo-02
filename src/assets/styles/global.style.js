@@ -1,6 +1,14 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { get } from "styled-system";
 import css from "@styled-system/css";
+
+export const InjectRTL = styled.div`
+  ${({ lang }) =>
+    (lang === "ar" || lang === "he") &&
+    `
+    font-family: 'Cairo', sans-serif;
+    `}
+`;
 
 export const GlobalStyle = createGlobalStyle(({ theme }) =>
   css({
